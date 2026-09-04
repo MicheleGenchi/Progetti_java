@@ -1,0 +1,57 @@
+services:
+
+  # DB TEST
+  jvdb-test:
+    image: mysql:8.0.32
+    env_file:
+      - microservices/db/.env.db-test
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+    container_name: jvdb-test
+    ports:
+      - 33260:3306
+
+  # DB GEO
+  jvdb-geo:
+    image: mysql:8.0.32
+    env_file:
+      - microservices/db/.env.db-geo
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+    container_name: jvdb-geo
+    ports:
+      - 33261:3306
+    volumes: 
+      - ./microservices/db/data/geo:/var/lib/mysql
+
+  jvphpmyadmin-geo:
+    container_name: jvphpmyadmin-geo
+    depends_on:
+      - jvdb-geo
+    image: phpmyadmin/phpmyadmin
+    env_file:
+      - ./microservices/db/.env.db-geo
+    ports:
+      - 8190:80
+    environment:
+       PMA_HOST: jvdb-geo
+
+# microservice geo-tools
+  jv-geo-tools:
+    container_name: jv-geo-tools
+    build:
+      context: .
+      dockerfile: microservices/geo-tools/Dockerfile
+    env_file: microservices/db/.env.db-geo
+    environment:
+      - JAVA_TOOL_OPTIONS=-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=5005
+    volumes:
+      - ./microservices/geo-tools/src:/geo-tools/src # cartella progetto
+    stdin_open: true
+    tty: true
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    ports:
+      - 7000:8080
+      - 5005:5005
+
