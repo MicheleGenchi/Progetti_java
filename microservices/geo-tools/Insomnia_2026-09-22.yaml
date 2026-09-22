@@ -1,0 +1,94 @@
+type: collection.insomnia.rest/5.0
+schema_version: "5.1"
+name: Geotools_java
+meta:
+  id: wrk_a2fb6b10b8474e64895d51b3e1de47fd
+  created: 1788427116652
+  modified: 1788427116652
+  description: ""
+collection:
+  - url: localhost:7000/connection
+    name: Verifica connessione
+    meta:
+      id: req_47ae5ffbcda0402386c4beb4c5b416cf
+      created: 1788427391398
+      modified: 1790009600507
+      isPrivate: false
+      description: ""
+      sortKey: -1788427391398
+    method: GET
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: localhost:7000/country/get
+    name: Country
+    meta:
+      id: req_d0096e1b44804797b9b09d44faa2d468
+      created: 1788427446828
+      modified: 1790009584396
+      isPrivate: false
+      description: ""
+      sortKey: -1788427446828
+    method: GET
+    body:
+      mimeType: application/json
+      text: |-
+        {
+         	"country_code":["IT"] 
+        }
+    headers:
+      - name: Content-Type
+        value: application/json
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: localhost:7000/city/get
+    name: City
+    meta:
+      id: req_53da6338b1d6409b89ac77a77919de6e
+      created: 1788440775849
+      modified: 1790009598905
+      isPrivate: false
+      description: ""
+      sortKey: -1788427419113
+    method: GET
+    body:
+      mimeType: application/json
+      text: |-
+        {
+        	"country_code":["IT"]
+        }
+    headers:
+      - name: Content-Type
+        value: application/json
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+cookieJar:
+  name: Default Jar
+  meta:
+    id: jar_406c3f3e30d149868872d128d9e30f56
+    created: 1730826030797
+    modified: 1730826030797
+environments:
+  name: Base Environment
+  meta:
+    id: env_318fb2cd30324bdabe6841c610da6c64
+    created: 1730826030792
+    modified: 1730826030792
+    isPrivate: false
