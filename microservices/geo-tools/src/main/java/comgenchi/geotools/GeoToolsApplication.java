@@ -24,7 +24,8 @@ public class GeoToolsApplication {
                             "http://0.0.0.0:7001",
                             "http://localhost:7001",
                             "http://localhost:8081",
-                            "http://0.0.0.0:8081")
+                            "http://0.0.0.0:8081",
+                            "http://casagenchi5.ddns.net:8081")
                         .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
                         .allowedHeaders("*")
                         .allowCredentials(true);
