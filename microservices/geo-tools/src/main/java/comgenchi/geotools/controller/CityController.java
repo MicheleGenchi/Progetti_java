@@ -38,7 +38,7 @@ class CityController {
    * @throws NoSuchMethodException
    * @throws Exception
    */
-  @GetMapping("/get")
+  @PostMapping("/get")
   public ResponseEntity<Map<String, ?>> get(
     @Valid @RequestBody RequestObject request,
     final BindingResult bindingResult
