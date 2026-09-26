@@ -12,11 +12,11 @@ collection:
     meta:
       id: req_47ae5ffbcda0402386c4beb4c5b416cf
       created: 1788427391398
-      modified: 1790009600507
+      modified: 1790422918181
       isPrivate: false
       description: ""
       sortKey: -1788427391398
-    method: GET
+    method: POST
     settings:
       renderRequestBody: true
       encodeUrl: true
@@ -25,22 +25,19 @@ collection:
         send: true
         store: true
       rebuildPath: true
-  - url: localhost:7000/country/get
+  - url: http://localhost:7000/country/get
     name: Country
     meta:
       id: req_d0096e1b44804797b9b09d44faa2d468
       created: 1788427446828
-      modified: 1790009584396
+      modified: 1790427440541
       isPrivate: false
       description: ""
       sortKey: -1788427446828
-    method: GET
+    method: POST
     body:
       mimeType: application/json
-      text: |-
-        {
-         	"country_code":["IT"] 
-        }
+      text: ""
     headers:
       - name: Content-Type
         value: application/json
@@ -57,17 +54,14 @@ collection:
     meta:
       id: req_53da6338b1d6409b89ac77a77919de6e
       created: 1788440775849
-      modified: 1790009598905
+      modified: 1790427456768
       isPrivate: false
       description: ""
       sortKey: -1788427419113
-    method: GET
+    method: POST
     body:
       mimeType: application/json
-      text: |-
-        {
-        	"country_code":["IT"]
-        }
+      text: ""
     headers:
       - name: Content-Type
         value: application/json
