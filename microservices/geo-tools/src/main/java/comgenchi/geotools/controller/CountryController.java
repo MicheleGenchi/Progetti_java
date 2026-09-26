@@ -43,7 +43,7 @@ class CountryController {
    */
   @PostMapping("/get")
   public ResponseEntity<Map<String, ?>> get (
-    @Valid @RequestBody RequestObject request,
+    @Valid @RequestBody(required = false) RequestObject request,
     final BindingResult bindingResult
   )
     throws IllegalArgumentException, RecordNotFoundException, MethodArgumentNotValidException, NoSuchMethodException, SecurityException, Exception {

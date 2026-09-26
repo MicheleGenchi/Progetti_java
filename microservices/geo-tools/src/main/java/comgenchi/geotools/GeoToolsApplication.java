@@ -20,7 +20,11 @@ public class GeoToolsApplication {
             @Override
             public void addCorsMappings(CorsRegistry registry) {
                 registry.addMapping("/**")
-                        .allowedOrigins("http://0.0.0.0:7001","http://localhost:7001","http://0.0.0.0:8081")
+                        .allowedOrigins(
+                            "http://0.0.0.0:7001",
+                            "http://localhost:7001",
+                            "http://localhost:8081",
+                            "http://0.0.0.0:8081")
                         .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
                         .allowedHeaders("*")
                         .allowCredentials(true);
