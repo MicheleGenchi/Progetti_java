@@ -2,8 +2,6 @@ package comgenchi.geotools.controller;
 
 import java.util.Map;
 
-import javax.validation.Valid;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
@@ -40,16 +38,20 @@ class CityController {
    * @throws Exception
    */
   @PostMapping("/get")
-  public ResponseEntity<Map<String, ?>> get(
-    @Valid @RequestBody(required = false) RequestObject request,
-    final BindingResult bindingResult
-  )
-    throws RecordNotFoundException, MethodArgumentNotValidException, NoSuchMethodException, SecurityException, Exception {
+    public ResponseEntity<Map<String, ?>> get (
+      @RequestBody(required = false) RequestObject request
+      ,final BindingResult bindingResult) 
+    throws IllegalArgumentException, 
+    RecordNotFoundException, 
+    MethodArgumentNotValidException, 
+    NoSuchMethodException, 
+    SecurityException, 
+    Exception {
     // Se l'utente non invia il JSON, istanziamo l'oggetto vuoto per evitare NullPointerException
     if (request == null) {
       request = new RequestObject();
     }
-
+    
       if (bindingResult.hasErrors()) {
       //Method currentMethod=this.getClass().getMethod("getAll",  RequestObject.class);
       //MethodParameter methodParameter=new MethodParameter(currentMethod, 0);
