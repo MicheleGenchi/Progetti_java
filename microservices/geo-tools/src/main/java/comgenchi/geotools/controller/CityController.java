@@ -45,7 +45,12 @@ class CityController {
     final BindingResult bindingResult
   )
     throws RecordNotFoundException, MethodArgumentNotValidException, NoSuchMethodException, SecurityException, Exception {
-    if (bindingResult.hasErrors()) {
+    // Se l'utente non invia il JSON, istanziamo l'oggetto vuoto per evitare NullPointerException
+    if (request == null) {
+      request = new RequestObject();
+    }
+
+      if (bindingResult.hasErrors()) {
       //Method currentMethod=this.getClass().getMethod("getAll",  RequestObject.class);
       //MethodParameter methodParameter=new MethodParameter(currentMethod, 0);
       throw new MethodArgumentNotValidException(null, bindingResult);
